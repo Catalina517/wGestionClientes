@@ -28,20 +28,235 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblIdentificacion = new System.Windows.Forms.Label();
+            this.lblSaldo = new System.Windows.Forms.Label();
+            this.lblTipoCliente = new System.Windows.Forms.Label();
+            this.lstClientes = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtIdentificación = new System.Windows.Forms.TextBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.cmbTipoCliente = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblCuentasActivas = new System.Windows.Forms.Label();
+            this.numCuentasActivas = new System.Windows.Forms.NumericUpDown();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numCuentasActivas)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(258, 19);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(296, 25);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Gestión de clientes bancarios";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(17, 100);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(80, 20);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // lblIdentificacion
+            // 
+            this.lblIdentificacion.AutoSize = true;
+            this.lblIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificacion.Location = new System.Drawing.Point(17, 159);
+            this.lblIdentificacion.Name = "lblIdentificacion";
+            this.lblIdentificacion.Size = new System.Drawing.Size(127, 20);
+            this.lblIdentificacion.TabIndex = 2;
+            this.lblIdentificacion.Text = "Identificación:";
+            // 
+            // lblSaldo
+            // 
+            this.lblSaldo.AutoSize = true;
+            this.lblSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldo.Location = new System.Drawing.Point(17, 214);
+            this.lblSaldo.Name = "lblSaldo";
+            this.lblSaldo.Size = new System.Drawing.Size(62, 20);
+            this.lblSaldo.TabIndex = 3;
+            this.lblSaldo.Text = "Saldo:";
+            // 
+            // lblTipoCliente
+            // 
+            this.lblTipoCliente.AutoSize = true;
+            this.lblTipoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoCliente.Location = new System.Drawing.Point(17, 276);
+            this.lblTipoCliente.Name = "lblTipoCliente";
+            this.lblTipoCliente.Size = new System.Drawing.Size(139, 20);
+            this.lblTipoCliente.TabIndex = 4;
+            this.lblTipoCliente.Text = "Tipo de cliente:";
+            // 
+            // lstClientes
+            // 
+            this.lstClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstClientes.FormattingEnabled = true;
+            this.lstClientes.ItemHeight = 20;
+            this.lstClientes.Location = new System.Drawing.Point(416, 93);
+            this.lstClientes.Name = "lstClientes";
+            this.lstClientes.Size = new System.Drawing.Size(300, 184);
+            this.lstClientes.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(41, 441);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 54);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "AGREGAR CLIENTE";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(179, 93);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(121, 27);
+            this.txtNombre.TabIndex = 11;
+            // 
+            // txtIdentificación
+            // 
+            this.txtIdentificación.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentificación.Location = new System.Drawing.Point(179, 152);
+            this.txtIdentificación.Name = "txtIdentificación";
+            this.txtIdentificación.Size = new System.Drawing.Size(121, 27);
+            this.txtIdentificación.TabIndex = 12;
+            // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldo.Location = new System.Drawing.Point(179, 207);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(121, 27);
+            this.txtSaldo.TabIndex = 13;
+            // 
+            // cmbTipoCliente
+            // 
+            this.cmbTipoCliente.FormattingEnabled = true;
+            this.cmbTipoCliente.Location = new System.Drawing.Point(179, 272);
+            this.cmbTipoCliente.Name = "cmbTipoCliente";
+            this.cmbTipoCliente.Size = new System.Drawing.Size(121, 24);
+            this.cmbTipoCliente.TabIndex = 16;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(30, 329);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(245, 24);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Acceso a línea de crédito";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // lblCuentasActivas
+            // 
+            this.lblCuentasActivas.AutoSize = true;
+            this.lblCuentasActivas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCuentasActivas.Location = new System.Drawing.Point(12, 369);
+            this.lblCuentasActivas.Name = "lblCuentasActivas";
+            this.lblCuentasActivas.Size = new System.Drawing.Size(181, 40);
+            this.lblCuentasActivas.TabIndex = 18;
+            this.lblCuentasActivas.Text = "Cantidad de cuentas\r\nactivas:\r\n";
+            // 
+            // numCuentasActivas
+            // 
+            this.numCuentasActivas.Location = new System.Drawing.Point(210, 370);
+            this.numCuentasActivas.Name = "numCuentasActivas";
+            this.numCuentasActivas.Size = new System.Drawing.Size(120, 22);
+            this.numCuentasActivas.TabIndex = 19;
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrar.Location = new System.Drawing.Point(210, 441);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(136, 54);
+            this.btnMostrar.TabIndex = 20;
+            this.btnMostrar.Text = "MOSTRAR CLIENTE";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(395, 441);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(136, 54);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "ACTUALIZAR CLIENTE";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(580, 441);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(136, 54);
+            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.Text = "ELIMINAR CLIENTE";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 549);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.numCuentasActivas);
+            this.Controls.Add(this.lblCuentasActivas);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cmbTipoCliente);
+            this.Controls.Add(this.txtSaldo);
+            this.Controls.Add(this.txtIdentificación);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lstClientes);
+            this.Controls.Add(this.lblTipoCliente);
+            this.Controls.Add(this.lblSaldo);
+            this.Controls.Add(this.lblIdentificacion);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblTitle);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.numCuentasActivas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblIdentificacion;
+        private System.Windows.Forms.Label lblSaldo;
+        private System.Windows.Forms.Label lblTipoCliente;
+        private System.Windows.Forms.ListBox lstClientes;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtIdentificación;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.ComboBox cmbTipoCliente;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lblCuentasActivas;
+        private System.Windows.Forms.NumericUpDown numCuentasActivas;
+        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 
