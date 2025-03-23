@@ -11,7 +11,7 @@ namespace wGestionClientes
     {
         public bool AccesoLineaCredito {  get; set; }
 
-        public ClienteCorporativo(string nombre, string identificacion, decimal saldo) : base(nombre, identificacion, saldo)
+        public ClienteCorporativo(string nombre, string identificacion, decimal saldo, bool accesoLineaCredito) : base(nombre, identificacion, saldo)
         {
             AccesoLineaCredito = saldo > 50000000;
 
