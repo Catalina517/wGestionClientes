@@ -10,11 +10,18 @@ namespace wGestionClientes
     {
         public static Cliente CrearCliente(string tipo, string nombre, string identificacion, decimal saldo, bool accesoLineaCredito = false, int cantidadCuentas = 0)
         {
-            if (tipo ==  "Cliente Corporativo")
+            if (tipo ==  "Cliente corporativo")
             {
                 return new ClienteCorporativo(nombre, identificacion, saldo, accesoLineaCredito);
             }
-            else if
+            else if (tipo == "Cliente individual")
+            {
+                return new ClienteIndividual(nombre, identificacion, saldo, cantidadCuentas);
+            }
+            else
+            {
+                throw new ArgumentException("Tipo de cliente no válido");
+            }
         }
     }
 }

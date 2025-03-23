@@ -34,18 +34,17 @@
             this.lblSaldo = new System.Windows.Forms.Label();
             this.lblTipoCliente = new System.Windows.Forms.Label();
             this.lstClientes = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdentificación = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.cmbTipoCliente = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkAccesoCredito = new System.Windows.Forms.CheckBox();
             this.lblCuentasActivas = new System.Windows.Forms.Label();
-            this.numCuentasActivas = new System.Windows.Forms.NumericUpDown();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numCuentasActivas)).BeginInit();
+            this.txtCantidadCuentas = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -108,15 +107,16 @@
             this.lstClientes.Size = new System.Drawing.Size(300, 184);
             this.lstClientes.TabIndex = 6;
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(41, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 54);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "AGREGAR CLIENTE";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(41, 441);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(136, 54);
+            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.Text = "AGREGAR CLIENTE";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNombre
             // 
@@ -150,16 +150,16 @@
             this.cmbTipoCliente.Size = new System.Drawing.Size(121, 24);
             this.cmbTipoCliente.TabIndex = 16;
             // 
-            // checkBox1
+            // chkAccesoCredito
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(30, 329);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(245, 24);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Acceso a línea de crédito";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkAccesoCredito.AutoSize = true;
+            this.chkAccesoCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAccesoCredito.Location = new System.Drawing.Point(30, 329);
+            this.chkAccesoCredito.Name = "chkAccesoCredito";
+            this.chkAccesoCredito.Size = new System.Drawing.Size(245, 24);
+            this.chkAccesoCredito.TabIndex = 17;
+            this.chkAccesoCredito.Text = "Acceso a línea de crédito";
+            this.chkAccesoCredito.UseVisualStyleBackColor = true;
             // 
             // lblCuentasActivas
             // 
@@ -171,13 +171,6 @@
             this.lblCuentasActivas.TabIndex = 18;
             this.lblCuentasActivas.Text = "Cantidad de cuentas\r\nactivas:\r\n";
             // 
-            // numCuentasActivas
-            // 
-            this.numCuentasActivas.Location = new System.Drawing.Point(210, 370);
-            this.numCuentasActivas.Name = "numCuentasActivas";
-            this.numCuentasActivas.Size = new System.Drawing.Size(120, 22);
-            this.numCuentasActivas.TabIndex = 19;
-            // 
             // btnMostrar
             // 
             this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,16 +180,18 @@
             this.btnMostrar.TabIndex = 20;
             this.btnMostrar.Text = "MOSTRAR CLIENTE";
             this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.Location = new System.Drawing.Point(395, 441);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(136, 54);
+            this.btnActualizar.Size = new System.Drawing.Size(159, 54);
             this.btnActualizar.TabIndex = 21;
             this.btnActualizar.Text = "ACTUALIZAR CLIENTE";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -207,23 +202,31 @@
             this.btnEliminar.TabIndex = 22;
             this.btnEliminar.Text = "ELIMINAR CLIENTE";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // txtCantidadCuentas
+            // 
+            this.txtCantidadCuentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidadCuentas.Location = new System.Drawing.Point(246, 369);
+            this.txtCantidadCuentas.Name = "txtCantidadCuentas";
+            this.txtCantidadCuentas.Size = new System.Drawing.Size(100, 27);
+            this.txtCantidadCuentas.TabIndex = 23;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 549);
+            this.Controls.Add(this.txtCantidadCuentas);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnMostrar);
-            this.Controls.Add(this.numCuentasActivas);
             this.Controls.Add(this.lblCuentasActivas);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chkAccesoCredito);
             this.Controls.Add(this.cmbTipoCliente);
             this.Controls.Add(this.txtSaldo);
             this.Controls.Add(this.txtIdentificación);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lstClientes);
             this.Controls.Add(this.lblTipoCliente);
             this.Controls.Add(this.lblSaldo);
@@ -231,8 +234,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTitle);
             this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numCuentasActivas)).EndInit();
+            this.Text = "Gestion de clientes bancarios";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,17 +248,17 @@
         private System.Windows.Forms.Label lblSaldo;
         private System.Windows.Forms.Label lblTipoCliente;
         private System.Windows.Forms.ListBox lstClientes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtIdentificación;
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.ComboBox cmbTipoCliente;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkAccesoCredito;
         private System.Windows.Forms.Label lblCuentasActivas;
-        private System.Windows.Forms.NumericUpDown numCuentasActivas;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtCantidadCuentas;
     }
 }
 

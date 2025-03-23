@@ -51,7 +51,7 @@ namespace wGestionClientes
             try
             {
                 clientes.RemoveAll(c => c.Identificacion == identificacion);
-                MessageBox.Show("Cliente eliminado correctamente", "éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Cliente eliminado correctamente", "éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
