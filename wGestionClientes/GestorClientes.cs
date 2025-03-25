@@ -29,7 +29,7 @@ namespace wGestionClientes
             }
         }
 
-        public void AgregarCliente(Cliente cliente)
+        public bool AgregarCliente(Cliente cliente)
         {
             try
             {
@@ -44,11 +44,15 @@ namespace wGestionClientes
                 }
 
                 clientes.Add(cliente);
+                return true;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al agregar cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+
         }
 
         public void EliminarCliente(string identificacion)

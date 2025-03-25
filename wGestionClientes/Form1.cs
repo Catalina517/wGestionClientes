@@ -77,9 +77,12 @@ namespace wGestionClientes
             try
             {
                 Cliente nuevoCliente = ClienteFactory.CrearCliente(tipo, nombre, identificacion, saldo, cantidadCuentas);
-                GestorClientes.Instancia.AgregarCliente(nuevoCliente);
-                MessageBox.Show("Cliente agregado correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool agregado = GestorClientes.Instancia.AgregarCliente(nuevoCliente);
 
+                if (agregado)
+                {
+                    MessageBox.Show("Cliente agregado correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -94,6 +97,7 @@ namespace wGestionClientes
             txtNombre.Clear();
             txtIdentificación.Clear();
             txtSaldo.Clear();
+            txtCantidadCuentas.Clear();
             cmbTipo.SelectedIndex = 0;
             txtNombre.Focus();
         }
@@ -133,6 +137,8 @@ namespace wGestionClientes
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            LimpiarCampos();
         }
 
        
