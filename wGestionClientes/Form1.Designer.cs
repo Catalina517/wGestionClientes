@@ -1,6 +1,6 @@
 ﻿namespace wGestionClientes
 {
-    partial class Form1
+    partial class frmGestionClientes
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -38,13 +38,12 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtIdentificación = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
-            this.cmbTipoCliente = new System.Windows.Forms.ComboBox();
-            this.chkAccesoCredito = new System.Windows.Forms.CheckBox();
             this.lblCuentasActivas = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtCantidadCuentas = new System.Windows.Forms.TextBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -142,25 +141,6 @@
             this.txtSaldo.Size = new System.Drawing.Size(121, 27);
             this.txtSaldo.TabIndex = 13;
             // 
-            // cmbTipoCliente
-            // 
-            this.cmbTipoCliente.FormattingEnabled = true;
-            this.cmbTipoCliente.Location = new System.Drawing.Point(179, 272);
-            this.cmbTipoCliente.Name = "cmbTipoCliente";
-            this.cmbTipoCliente.Size = new System.Drawing.Size(121, 24);
-            this.cmbTipoCliente.TabIndex = 16;
-            // 
-            // chkAccesoCredito
-            // 
-            this.chkAccesoCredito.AutoSize = true;
-            this.chkAccesoCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAccesoCredito.Location = new System.Drawing.Point(30, 329);
-            this.chkAccesoCredito.Name = "chkAccesoCredito";
-            this.chkAccesoCredito.Size = new System.Drawing.Size(245, 24);
-            this.chkAccesoCredito.TabIndex = 17;
-            this.chkAccesoCredito.Text = "Acceso a línea de crédito";
-            this.chkAccesoCredito.UseVisualStyleBackColor = true;
-            // 
             // lblCuentasActivas
             // 
             this.lblCuentasActivas.AutoSize = true;
@@ -212,17 +192,25 @@
             this.txtCantidadCuentas.Size = new System.Drawing.Size(100, 27);
             this.txtCantidadCuentas.TabIndex = 23;
             // 
-            // Form1
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(179, 272);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(121, 24);
+            this.cmbTipo.TabIndex = 25;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            // 
+            // frmGestionClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 549);
+            this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.txtCantidadCuentas);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.lblCuentasActivas);
-            this.Controls.Add(this.chkAccesoCredito);
-            this.Controls.Add(this.cmbTipoCliente);
             this.Controls.Add(this.txtSaldo);
             this.Controls.Add(this.txtIdentificación);
             this.Controls.Add(this.txtNombre);
@@ -233,8 +221,9 @@
             this.Controls.Add(this.lblIdentificacion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTitle);
-            this.Name = "Form1";
+            this.Name = "frmGestionClientes";
             this.Text = "Gestion de clientes bancarios";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,13 +241,12 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtIdentificación;
         private System.Windows.Forms.TextBox txtSaldo;
-        private System.Windows.Forms.ComboBox cmbTipoCliente;
-        private System.Windows.Forms.CheckBox chkAccesoCredito;
         private System.Windows.Forms.Label lblCuentasActivas;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtCantidadCuentas;
+        private System.Windows.Forms.ComboBox cmbTipo;
     }
 }
 

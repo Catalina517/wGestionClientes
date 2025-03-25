@@ -10,39 +10,35 @@ using System.Windows.Forms;
 
 namespace wGestionClientes
 {
-    public partial class Form1 : Form
+    public partial class frmGestionClientes : Form
     {
-        public Form1()
+        public frmGestionClientes()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load_1(object sender, EventArgs e)
         {
-            #region[Combo Clientes]
-            cmbTipoCliente.Items.Add("Cliente corporativo");
-            cmbTipoCliente.Items.Add("Cliente individual");
-            cmbTipoCliente.SelectedIndex = 0;
-            #endregion
+            cmbTipo.Items.Add("Cliente corporativo");
+            cmbTipo.Items.Add("Cliente individual");
+            cmbTipo.SelectedIndex = 0;
 
         }
 
-        private void cmbTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarCampos();
         }
 
         private void MostrarCampos()
         {
-            if (cmbTipoCliente.SelectedItem.ToString() == "Cliente corporativo")
+            if (cmbTipo.SelectedItem.ToString() == "Cliente corporativo")
             {
-                chkAccesoCredito.Visible = true;
                 lblCuentasActivas.Visible = false;
                 txtCantidadCuentas.Visible = false;
             }
             else
             {
-                chkAccesoCredito.Visible = false;
                 lblCuentasActivas.Visible = true;
                 txtCantidadCuentas.Visible = true;
             }
@@ -51,9 +47,10 @@ namespace wGestionClientes
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
-            string identificacion = txtIdentificación.Text;
+            string identificacion = txtIdentificación.Text.Trim();
             decimal saldo = decimal.Parse(txtSaldo.Text);
-            string tipo = cmbTipoCliente.SelectedItem.ToString();
+            string tipo = cmbTipo.SelectedItem.ToString();
+            int cantidadCuentas = 0;
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(identificacion))
             {
@@ -68,18 +65,28 @@ namespace wGestionClientes
                 return;
             }
 
+            if (tipo == "Cliente individual")
+            {
+                if (!int.TryParse(txtCantidadCuentas.Text, out cantidadCuentas) || cantidadCuentas < 0)
+                {
+                    MessageBox.Show("Ingrese un número válido de cuentas activas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             try
             {
-                Cliente nuevoCliente = ClienteFactory.CrearCliente(tipo, nombre, identificacion, saldo);
+                Cliente nuevoCliente = ClienteFactory.CrearCliente(tipo, nombre, identificacion, saldo, cantidadCuentas);
                 GestorClientes.Instancia.AgregarCliente(nuevoCliente);
                 MessageBox.Show("Cliente agregado correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LimpiarCampos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            LimpiarCampos();
         }
 
         public void LimpiarCampos()
@@ -87,7 +94,7 @@ namespace wGestionClientes
             txtNombre.Clear();
             txtIdentificación.Clear();
             txtSaldo.Clear();
-            cmbTipoCliente.SelectedIndex = 0;
+            cmbTipo.SelectedIndex = 0;
             txtNombre.Focus();
         }
 
@@ -127,5 +134,7 @@ namespace wGestionClientes
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+       
     }
 }

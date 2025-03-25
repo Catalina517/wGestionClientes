@@ -15,12 +15,10 @@ namespace wGestionClientes
         {
             if (cantidadCuentas > 3)
             {
-                MessageBox.Show("Un cliente individual no puede tener más de 3 cuentas activas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               throw new ArgumentException("Un cliente individual no puede tener más de 3 cuentas activas");
             }
-            else
-            {
-                CantidadCuentasActivas = cantidadCuentas;
-            }
+
+            CantidadCuentasActivas = cantidadCuentas;
         }
 
         public override string CalcularBeneficio()

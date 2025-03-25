@@ -15,9 +15,13 @@ namespace wGestionClientes
 
         public Cliente(string nombre, string identificacion, decimal saldo)
         {
-            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(identificacion))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 throw new ArgumentNullException("El nombre no puede estar vacío");
+            }
+            if (string.IsNullOrWhiteSpace(identificacion))
+            {
+                throw new ArgumentException("La identificación no puede estar vacía o solo contener espacios en blanco.");
             }
             if (saldo <= 0)
             {

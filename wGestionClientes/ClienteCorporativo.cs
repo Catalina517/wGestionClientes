@@ -11,9 +11,15 @@ namespace wGestionClientes
     {
         public bool AccesoLineaCredito {  get; set; }
 
-        public ClienteCorporativo(string nombre, string identificacion, decimal saldo, bool accesoLineaCredito) : base(nombre, identificacion, saldo)
+        public ClienteCorporativo(string nombre, string identificacion, decimal saldo) : base(nombre, identificacion, saldo)
         {
-            AccesoLineaCredito = saldo > 50000000;
+            if (saldo <= 0 || saldo < 50000000)
+            {
+                throw new ArgumentException("l saldo para un cliente corporativo debe ser mayor que 0 y al menos de 50,000,000");
+            }
+
+            AccesoLineaCredito = saldo >= 50000000;
+
 
             if (!AccesoLineaCredito)
             {

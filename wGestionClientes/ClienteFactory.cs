@@ -8,11 +8,11 @@ namespace wGestionClientes
 {
     public class ClienteFactory
     {
-        public static Cliente CrearCliente(string tipo, string nombre, string identificacion, decimal saldo, bool accesoLineaCredito = false, int cantidadCuentas = 0)
+        public static Cliente CrearCliente(string tipo, string nombre, string identificacion, decimal saldo, int cantidadCuentas = 0)
         {
             if (tipo ==  "Cliente corporativo")
             {
-                return new ClienteCorporativo(nombre, identificacion, saldo, accesoLineaCredito);
+                return new ClienteCorporativo(nombre, identificacion, saldo);
             }
             else if (tipo == "Cliente individual")
             {
