@@ -23,7 +23,14 @@ namespace wGestionClientes
 
         public override string CalcularBeneficio()
         {
-            return "Cliente individual sin beneficios especiales.";
+            if (CantidadCuentasActivas == 3)
+            {
+                return "Cliente individual con bonificación por cuentas activas.";
+            }
+            else
+            {
+                return "Cliente individual sin beneficios especiales.";
+            }
         }
     }
 }

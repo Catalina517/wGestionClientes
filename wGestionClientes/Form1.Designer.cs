@@ -44,6 +44,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtCantidadCuentas = new System.Windows.Forms.TextBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -201,10 +202,21 @@
             this.cmbTipo.TabIndex = 25;
             this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(624, 317);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmGestionClientes
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 549);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.txtCantidadCuentas);
             this.Controls.Add(this.btnEliminar);
@@ -247,6 +259,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtCantidadCuentas;
         private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Button button1;
     }
 }
 

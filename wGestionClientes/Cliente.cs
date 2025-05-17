@@ -21,7 +21,7 @@ namespace wGestionClientes
             }
             if (string.IsNullOrWhiteSpace(identificacion))
             {
-                throw new ArgumentException("La identificación no puede estar vacía o solo contener espacios en blanco.");
+                throw new ArgumentException("La identificación no puede estar vacía");
             }
             if (saldo <= 0)
             {
